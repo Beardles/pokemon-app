@@ -82,7 +82,7 @@ const fetchPokemon = async (pokemonId: number): Promise<any> => {
     const data = await response.json();
     return data;
   } catch (e) {
-    throw new Error(`Error fetching pokemon by id: pokemonId=${pokemonId}, error=${e.message}`)
+    throw new Error(`Error fetching pokemon by id: pokemonId=${pokemonId}, error=${JSON.stringify(e)}`)
   }
 }
 
@@ -100,4 +100,6 @@ const updatePokemonTable = async (pokemonList: Pokemon[]): Promise<number> => {
 }
 
 
-load();
+load()
+  .then(() => console.log('Db seed complete'))
+  .catch(() => console.error('Db seed failed'));

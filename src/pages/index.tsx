@@ -1,9 +1,8 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import Navbar from "~/components/Navbar";
+import { PokemonList } from "~/components/ui/PokmeonList";
 
-import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   return (
@@ -15,7 +14,8 @@ const Home: NextPage = () => {
       </Head>
       <main className="min-h-screen bg-gradient-to-b from-blue-500 via-blue-900 to-yellow-500">
         <Navbar />
-        <div className="container">
+        <div className="container mx-auto">
+          <PokemonList />
         </div>
       </main>
     </>

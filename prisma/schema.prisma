@@ -9,9 +9,27 @@ datasource db {
 }
 
 model Pokemon {
-  id    Int    @id @unique
-  name  String
-  image String
+  id        Int                @id @unique
+  name      String
+  image     String
+  pokedexes PokemonInPokedex[]
 
-  @@index([id, name])
+  @@index([name])
+}
+
+model Pokedex {
+  id      String             @id @default(cuid())
+  name    String             @unique
+  pokemon PokemonInPokedex[]
+}
+
+model PokemonInPokedex {
+  pokemon   Pokemon @relation(fields: [pokemonId], references: [id])
+  pokedex   Pokedex @relation(fields: [pokedexId], references: [id])
+  pokemonId Int
+  pokedexId String
+
+  @@id([pokemonId, pokedexId])
+  @@index([pokemonId])
+  @@index([pokedexId])
 }
