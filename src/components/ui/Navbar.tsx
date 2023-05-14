@@ -1,5 +1,4 @@
 import React from "react";
-import Image from 'next/image';
 import Link from "next/link";
 
 const Navbar = () => {
@@ -20,7 +19,7 @@ const Navbar = () => {
                         <Link href="/pokedex/new" className="block py-2 pl-3 pr-4 text-white" aria-current="page">New Pokedex</Link>
                     </li>
                     <li>
-                        <Link href="/pokedex" className="block py-2 pl-3 pr-4 text-white" aria-current="page">My Pokedexes</Link>
+                        <Link href="/pokedexes" className="block py-2 pl-3 pr-4 text-white" aria-current="page">My Pokedexes</Link>
                     </li>
                 </ul>
                 </div>

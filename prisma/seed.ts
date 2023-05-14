@@ -17,7 +17,6 @@ const load = async (): Promise<void> => {
     const dbDiff = await getDbDiff(pokemonCount);
 
     if (dbDiff === 0) {
-      console.log('No new pokemon to update!');
       return;
     }
 
@@ -32,11 +31,8 @@ const load = async (): Promise<void> => {
         image: data.sprites.front_default || ''
       };
       pokemon.push(pokemonData);
-      console.log(`POKEMON FETCHED: ${i + 1}`)
     }
 
-    console.log(`POKEMON LIST: ${JSON.stringify(pokemon)}`)
-    
     // Write to db
     const updateCount = await updatePokemonTable(pokemon);
     console.log(`Updated pokemon db with ${updateCount} new pokemon!`)

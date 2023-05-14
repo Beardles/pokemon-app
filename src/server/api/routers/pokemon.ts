@@ -9,5 +9,4 @@ export const pokemonRouter = createTRPCRouter({
     .query(({ ctx }) => {
       return ctx.prisma.pokemon.findMany();
     }),
-    
 });
