@@ -1,14 +1,12 @@
-import { Pokemon } from "@prisma/client";
+import { type Pokemon } from "@prisma/client";
 
-import { api } from "~/utils/api"
+import { prisma } from "~/config/db";
+
 import { PokemonCard } from "./Pokemon";
 
-export const PokemonList: React.FC = () => {
-  const { data, isLoading } = api.pokemon.list.useQuery();
+export const PokemonList: Promise<React.FC> = async () => {
+  const data = await prisma.pokemon.findMany();
 
-  if (isLoading) return (
-    <div>Loading...</div>
-  )
 
   if (!data) return <div>404</div>
 

@@ -1,5 +1,5 @@
 import { type Pokemon } from "@prisma/client";
-import { prisma } from "../src/server/db";
+import { prisma } from "../src/config/db";
 
 const API_BASE_URL = 'https://pokeapi.co/api/v2'
 
@@ -96,6 +96,4 @@ const updatePokemonTable = async (pokemonList: Pokemon[]): Promise<number> => {
 }
 
 
-load()
-  .then(() => console.log('Db seed complete'))
-  .catch(() => console.error('Db seed failed'));
+load().catch((e) => console.error(e));

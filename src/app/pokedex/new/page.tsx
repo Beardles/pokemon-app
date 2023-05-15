@@ -1,12 +1,9 @@
 import { type NextPage } from "next";
-import { PageLayout } from "~/components/layout";
-import { NewPokedexForm } from "~/components/ui/NewPokedexForm";
+import NewPokedexForm from "~/components/ui/NewPokedexForm/NewPokedexForm";
 
 const NewPokedex: NextPage = () => {
   return (
-    <PageLayout>
       <NewPokedexForm />
-    </PageLayout>
   )
 }
 
